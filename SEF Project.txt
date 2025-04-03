@@ -3,45 +3,16 @@ Use STRTOK;
 
 
 MainMenu
-1. Parts
-2. Customers
-3. Orders
-
-
-PartsMenu
-1. List all Parts
-2. Search for Part
-3. Enter New Part
-4. Update Inventory for Part
-5. Load Parts Database
-6. Save Parts Database
-7. Return to Main Menu
-
-CustumerMenu
-1. List all Customers
-2. Search for Customer
-3. Enter New Customer
-4. Update Customer Information
-5. Customer in Bad Credit Standing
-6. Load Customer Database
-7. Save Customer Database
-8. Return to Main Menu
-
-OrderMenu
-1. List all Orders
-2. Search for Order
-3. Enter New Order
-4. Process Orders at End of Day*
-5. Load Order Database
-6. Save Order Database
-7. Return to Main Menu
-
+1. Load Database(s)
+2. List Valid Customer(s)
+3. List Valid Part(s)
+4. List Valid Order(s)
 
 Functions:
 
 void MainMenu
-void PartsMenu
-void CustumerMenu
-void OrderMenu
+void ListValidCustomer
+void ListValidParts
+void ListValidOrder
 
 
