@@ -6,9 +6,11 @@
 #include <string.h>
 #include <errno.h>
 #include <windows.h>
+#include <direct.h>
 
 //Constants
 #define MAX_PATH_LEN 260
+#define _CRT_SECURE_NO_WARNINGS
 
 //Structs
 

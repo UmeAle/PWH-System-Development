@@ -69,15 +69,9 @@ char* getFilePath() {
 //
 void loadOrderDB() {
 	printf("Loading Order Database...\n");
-    char* filePath = getFilePath();
-    if (!filePath) {
-        return;
-    }
-
 	//Open the file for reading
     FILE* file = NULL;
-    if (openFile(&file, filePath, "r") != 0 || !file) {
-        free(filePath);
+    if (openFile(&file,"orders.db", "r") != 0 || !file) {
         return;
     }
 
@@ -97,7 +91,6 @@ void loadOrderDB() {
     }
 
     closeFile(file);
-    free(filePath);
 }
 
 //
@@ -108,15 +101,10 @@ void loadOrderDB() {
 //
 void loadCustomerDB() {
 	printf("Loading Customer Database...\n");
-    char* filePath = getFilePath();
-    if (!filePath) {
-        return;
-    }
-
+    
 	//Open the file for reading
     FILE* file = NULL;
-    if (openFile(&file, filePath, "r") != 0 || !file) {
-        free(filePath);
+    if (openFile(&file, "customers.db", "r") != 0 || !file) {
         return;
     }
 
@@ -137,7 +125,6 @@ void loadCustomerDB() {
 
 	// Close the file
     closeFile(file);
-    free(filePath);
 }
 
 
@@ -148,18 +135,15 @@ void loadCustomerDB() {
 // RETURNS : None.
 //
 void loadPartsDB() {
-	printf("Loading Parts Database...\n");
-    char* filePath = getFilePath();
-    if (!filePath) {
+    printf("Loading Parts Database...\n");
+
+	//Open the file for reading.
+   //Open the file for reading
+    FILE* file = NULL;
+    if (openFile(&file, "parts.db", "r") != 0 || !file) {
         return;
     }
 
-	//Open the file for reading.
-    FILE* file = NULL;
-    if (openFile(&file, filePath, "r") != 0 || !file) {
-        free(filePath);
-        return;
-    }
 
     //Read the file line by line.
     char lineBuffer[300];
@@ -176,7 +160,6 @@ void loadPartsDB() {
     }
 
     closeFile(file);
-    free(filePath);
 }
 
 //
@@ -190,3 +173,4 @@ void loadAllDatabases() {
 	loadCustomerDB();
 	loadPartsDB();
 }
+
