@@ -133,6 +133,7 @@
     <ClCompile Include="ammarStuff..cpp" />
     <ClCompile Include="burhanStuff.cpp" />
     <ClCompile Include="eumeeStuff.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="nickStuff.cpp" />
     <ClCompile Include="rodrigoStuff.cpp" />
   </ItemGroup>
