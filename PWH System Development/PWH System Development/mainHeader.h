@@ -23,3 +23,5 @@ void loadOrderDB();
 void loadPartsDB();
 void loadCustomerDB();
 void loadAllDatabases();
+void ValidateAndPrintOrder(const char* lineBuffer);
+
