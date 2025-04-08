@@ -25,4 +25,5 @@ void loadCustomerDB();
 void loadAllDatabases();
 void ValidateAndPrintOrder(const char* lineBuffer);
 void listValidParts(const char* lineBuffer);
+void ValidateAndPrintCustomer(const char* lineBuffer);
 

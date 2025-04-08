@@ -1,6 +1,5 @@
 
 #include "mainHeader.h"
-//#include "eumeeStuff.cpp"
 
 
 //
@@ -146,7 +145,8 @@ void loadCustomerDB() {
         }
 
 		//WHOEVER IS DOING THE CUSTOMER DB, ADD YOUR STRTOK CODE HERE TO TOKENIZE
-        printf("Customer Line: %s\n", lineBuffer);
+        ValidateAndPrintCustomer(lineBuffer);
+
 
     }
 
@@ -198,5 +198,6 @@ void loadAllDatabases() {
 	loadOrderDB();
 	loadCustomerDB();
 	loadPartsDB();
+
 }
 
