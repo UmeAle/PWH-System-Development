@@ -165,12 +165,10 @@ void loadPartsDB() {
     printf("Loading Parts Database...\n");
 
 	//Open the file for reading.
-   //Open the file for reading
     FILE* file = NULL;
     if (openFile(&file, "parts.db", "r") != 0 || !file) {
         return;
     }
-
 
     //Read the file line by line.
     char lineBuffer[300];
@@ -182,8 +180,9 @@ void loadPartsDB() {
             lineBuffer[len - 1] = '\0';
         }
 
-		//WHOEVER IS DOING THE PARTS DB, ADD YOUR STRTOK CODE HERE TO TOKENIZE
-        printf("Part Line: %s\n", lineBuffer);
+        // Calls listValidParts func for each line in the parts database
+        // to ensure the record has exactly 7 fields.
+        listValidParts(lineBuffer);
     }
 
     closeFile(file);
