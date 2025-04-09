@@ -8,7 +8,9 @@
 // RETURNS     : None
 void ValidateAndPrintCustomer(const char* lineBuffer)
 {
+	const int EXPECTED_FIELDS = 12; //12, not 9 =)
     int fieldCount = 0;
+	char* tokens[EXPECTED_FIELDS];
     char tempLine[300];
     char* context = NULL;
 
@@ -16,16 +18,30 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
     strncpy_s(tempLine, lineBuffer, sizeof(tempLine));
     tempLine[sizeof(tempLine) - 1] = '\0';
 
-    //Tokenize using the '|' thing (Pipe, I guess)
+	//Tokenize using the pipes (' | ')
     char* token = strtok_s(tempLine, "|", &context);
-    while (token != NULL) {
-        fieldCount++;
+    while (token != NULL && fieldCount < EXPECTED_FIELDS) {
+        tokens[fieldCount++] = token;
         token = strtok_s(NULL, "|", &context);
     }
 
-    //If it has exactly 9 fields, it's considered valid
-    if (fieldCount == 9) {
-        printf("Valid Customer: %s\n", lineBuffer);
+    //If it has exactly 12 fields, it's considered valid
+    if (fieldCount == EXPECTED_FIELDS) {
+        printf("===== Valid Customer =====\n");
+        printf("Name: %s\n", tokens[0]);
+        printf("Address: %s, %s - %s (%s)\n",
+            tokens[1],  //Streat
+            tokens[2],  //City
+            tokens[3],  //Procince
+            tokens[4]); //Postal code
+        printf("Phone: %s\n", tokens[5]);
+        printf("Email: %s\n", tokens[6]);
+        printf("ID: %s\n", tokens[7]);
+        printf("Credit Limit: %s\n", tokens[8]);
+        printf("Account Ballance: %s\n", tokens[9]); 
+        printf("Last Payment Made: %s\n", tokens[10]);
+        printf("Join Date: %s\n", tokens[11]);
+        printf("========================\n\n");
         
         
         //log message
