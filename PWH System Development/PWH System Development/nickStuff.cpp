@@ -36,7 +36,7 @@ void closeFile(FILE* file) {
 // DESCRIPTION : This function prompts the user for a file path and returns it as a dynamically allocated string.
 // PARAMETERS : None.
 // RETURNS : A pointer to the dynamically allocated string containing the file path.
-char* getFilePath() {
+char* getFilePath(void) {
 
 	//Allocate memory for the file path. I did this in case anyone else needs to use it in their functions.
     char* path = (char*)malloc(MAX_PATH_LEN);
@@ -76,7 +76,7 @@ char* getFilePath() {
 // PARAMETERS : None
 // RETURNS : None.
 //
-void loadOrderDB() {
+void loadOrderDB(void) {
     printf("Loading Order Database...\n");
     
     //Open the file for reading
@@ -122,7 +122,7 @@ void loadOrderDB() {
 // PARAMETERS : None currently?
 // RETURNS : None.
 //
-void loadCustomerDB() {
+void loadCustomerDB(void) {
 	printf("Loading Customer Database...\n");
     
     //log message
@@ -170,7 +170,7 @@ void loadCustomerDB() {
 // PARAMETERS : None.
 // RETURNS : None.
 //
-void loadPartsDB() {
+void loadPartsDB(void) {
     printf("Loading Parts Database...\n");
 
     // log message
@@ -211,7 +211,7 @@ void loadPartsDB() {
 // PARAMETERS : None.
 // RETURNS : None.
 //
-void loadAllDatabases() {
+void loadAllDatabases(void) {
 	// log message 
     logEvent("INFO", "Starting to load all databases.");
     loadOrderDB();

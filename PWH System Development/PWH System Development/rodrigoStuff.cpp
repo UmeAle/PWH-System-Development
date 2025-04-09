@@ -58,7 +58,10 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
 }
 
 
-
+// FUNCTION    : mainMenu
+// DESCRIPTION : Displays the main menu and handles user input
+// PARAMETERS  : None
+// RETURNS     : None
 void mainMenu(void) {
     menuOptions choice;
     printf("======================================\n");
@@ -90,7 +93,10 @@ void mainMenu(void) {
     } while (choice != EXIT);
 }
 
-
+// FUNCTION    : displayMainMenu
+// DESCRIPTION : Displays the options
+// PARAMETERS  : None
+// RETURNS     : None
 void displayMainMenu(void) {
 	printf("\n1. Load Database\n");
 	printf("2. Load Order Database\n");

@@ -27,6 +27,7 @@ typedef enum {
 
 
 //Prototypes
+
 errno_t openFile(FILE** file, const char* filename, const char* mode);
 void closeFile(FILE* file);
 char* getFilePath();
