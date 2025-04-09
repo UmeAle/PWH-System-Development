@@ -33,7 +33,7 @@ void ValidateAndPrintOrder(const char* lineBuffer)
 
 	//Only prints the valid orders
 	if (fieldCount == EXPECTED_FIELDS) {
-		printf("===== Valid Order =====\n");
+		printf("\n===== Valid Order =====\n");
 		printf("Order ID: %s\n", tokens[0]);
 		printf("Date: %s \n", tokens[1]); 
 		printf("Status: %s\n", tokens[2]);

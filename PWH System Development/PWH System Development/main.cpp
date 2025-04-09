@@ -10,7 +10,7 @@ int main(void) {
 	logEvent("INFO", "Program started.");
 	
 	//The program is going to be runned here
-	loadAllDatabases();
+	mainMenu();
 
 	// program ends
 	logEvent("INFO", "Program finished.");

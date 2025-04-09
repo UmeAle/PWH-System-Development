@@ -332,3 +332,113 @@
 [2025-04-09 15:17:13] [INFO]: Loading Parts Database: Completed.
 [2025-04-09 15:17:13] [INFO]: All databases loaded successfully.
 [2025-04-09 15:17:13] [INFO]: Program finished.
+[2025-04-09 15:20:41] [INFO]: Program started.
+[2025-04-09 15:20:41] [INFO]: Starting to load all databases.
+[2025-04-09 15:20:41] [INFO]: Loading Order Database: Started.
+[2025-04-09 15:20:41] [INFO]: orders.db opened successfully.
+[2025-04-09 15:20:41] [INFO]: Order record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Order record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Loading Order Database: Completed.
+[2025-04-09 15:20:41] [INFO]: Loading Customer Database: Started.
+[2025-04-09 15:20:41] [INFO]: Customer record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Customer record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Customer record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Loading Customer Database: Completed.
+[2025-04-09 15:20:41] [INFO]: Loading Parts Database: Started.
+[2025-04-09 15:20:41] [INFO]: Part record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Part record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Part record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Part record processed successfully.
+[2025-04-09 15:20:41] [INFO]: Loading Parts Database: Completed.
+[2025-04-09 15:20:41] [INFO]: All databases loaded successfully.
+[2025-04-09 15:20:41] [INFO]: Program finished.
+[2025-04-09 15:21:53] [INFO]: Program started.
+[2025-04-09 15:21:53] [INFO]: Starting to load all databases.
+[2025-04-09 15:21:53] [INFO]: Loading Order Database: Started.
+[2025-04-09 15:21:53] [INFO]: orders.db opened successfully.
+[2025-04-09 15:21:53] [INFO]: Order record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Order record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Loading Order Database: Completed.
+[2025-04-09 15:21:53] [INFO]: Loading Customer Database: Started.
+[2025-04-09 15:21:53] [INFO]: Customer record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Customer record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Customer record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Loading Customer Database: Completed.
+[2025-04-09 15:21:53] [INFO]: Loading Parts Database: Started.
+[2025-04-09 15:21:53] [INFO]: Part record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Part record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Part record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Part record processed successfully.
+[2025-04-09 15:21:53] [INFO]: Loading Parts Database: Completed.
+[2025-04-09 15:21:53] [INFO]: All databases loaded successfully.
+[2025-04-09 15:21:53] [INFO]: Program finished.
+[2025-04-09 15:59:18] [INFO]: Program started.
+[2025-04-09 15:59:18] [INFO]: Starting to load all databases.
+[2025-04-09 15:59:18] [INFO]: Loading Order Database: Started.
+[2025-04-09 15:59:18] [INFO]: orders.db opened successfully.
+[2025-04-09 15:59:18] [INFO]: Order record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Order record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Loading Order Database: Completed.
+[2025-04-09 15:59:18] [INFO]: Loading Customer Database: Started.
+[2025-04-09 15:59:18] [INFO]: Customer record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Customer record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Customer record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Loading Customer Database: Completed.
+[2025-04-09 15:59:18] [INFO]: Loading Parts Database: Started.
+[2025-04-09 15:59:18] [INFO]: Part record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Part record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Part record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Part record processed successfully.
+[2025-04-09 15:59:18] [INFO]: Loading Parts Database: Completed.
+[2025-04-09 15:59:18] [INFO]: All databases loaded successfully.
+[2025-04-09 15:59:18] [INFO]: Program finished.
+[2025-04-09 16:04:52] [INFO]: Program started.
+[2025-04-09 16:05:58] [INFO]: Program started.
+[2025-04-09 16:06:06] [INFO]: Program started.
+[2025-04-09 16:06:11] [INFO]: Program started.
+[2025-04-09 16:06:16] [INFO]: Loading Order Database: Started.
+[2025-04-09 16:06:16] [INFO]: orders.db opened successfully.
+[2025-04-09 16:06:16] [INFO]: Order record processed successfully.
+[2025-04-09 16:06:16] [INFO]: Order record processed successfully.
+[2025-04-09 16:06:16] [INFO]: Loading Order Database: Completed.
+[2025-04-09 16:07:04] [INFO]: Program started.
+[2025-04-09 16:07:11] [INFO]: Loading Order Database: Started.
+[2025-04-09 16:07:11] [INFO]: orders.db opened successfully.
+[2025-04-09 16:07:11] [INFO]: Order record processed successfully.
+[2025-04-09 16:07:11] [INFO]: Order record processed successfully.
+[2025-04-09 16:07:11] [INFO]: Loading Order Database: Completed.
+[2025-04-09 16:07:34] [INFO]: Program started.
+[2025-04-09 16:07:35] [INFO]: Loading Order Database: Started.
+[2025-04-09 16:07:35] [INFO]: orders.db opened successfully.
+[2025-04-09 16:07:35] [INFO]: Order record processed successfully.
+[2025-04-09 16:07:35] [INFO]: Order record processed successfully.
+[2025-04-09 16:07:35] [INFO]: Loading Order Database: Completed.
+[2025-04-09 16:08:12] [INFO]: Program started.
+[2025-04-09 16:08:16] [INFO]: Loading Order Database: Started.
+[2025-04-09 16:08:16] [INFO]: orders.db opened successfully.
+[2025-04-09 16:08:16] [INFO]: Order record processed successfully.
+[2025-04-09 16:08:16] [INFO]: Order record processed successfully.
+[2025-04-09 16:08:16] [INFO]: Loading Order Database: Completed.
+[2025-04-09 16:08:17] [INFO]: Loading Parts Database: Started.
+[2025-04-09 16:08:17] [INFO]: Part record processed successfully.
+[2025-04-09 16:08:17] [INFO]: Part record processed successfully.
+[2025-04-09 16:08:17] [INFO]: Part record processed successfully.
+[2025-04-09 16:08:17] [INFO]: Part record processed successfully.
+[2025-04-09 16:08:17] [INFO]: Loading Parts Database: Completed.
+[2025-04-09 16:08:22] [INFO]: Loading Customer Database: Started.
+[2025-04-09 16:08:22] [INFO]: Customer record processed successfully.
+[2025-04-09 16:08:22] [INFO]: Customer record processed successfully.
+[2025-04-09 16:08:22] [INFO]: Customer record processed successfully.
+[2025-04-09 16:08:22] [INFO]: Loading Customer Database: Completed.
+[2025-04-09 16:08:28] [INFO]: Loading Order Database: Started.
+[2025-04-09 16:08:28] [INFO]: orders.db opened successfully.
+[2025-04-09 16:08:28] [INFO]: Order record processed successfully.
+[2025-04-09 16:08:28] [INFO]: Order record processed successfully.
+[2025-04-09 16:08:28] [INFO]: Loading Order Database: Completed.
+[2025-04-09 16:09:55] [INFO]: Program started.
+[2025-04-09 16:09:57] [INFO]: Loading Order Database: Started.
+[2025-04-09 16:09:57] [INFO]: orders.db opened successfully.
+[2025-04-09 16:09:57] [INFO]: Order record processed successfully.
+[2025-04-09 16:09:57] [INFO]: Order record processed successfully.
+[2025-04-09 16:09:57] [INFO]: Loading Order Database: Completed.
+[2025-04-09 16:10:00] [INFO]: Program finished.

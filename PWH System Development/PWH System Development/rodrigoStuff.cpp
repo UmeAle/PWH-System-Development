@@ -27,7 +27,7 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
 
     //If it has exactly 12 fields, it's considered valid
     if (fieldCount == EXPECTED_FIELDS) {
-        printf("===== Valid Customer =====\n");
+        printf("\n===== Valid Customer =====\n");
         printf("Name: %s\n", tokens[0]);
         printf("Address: %s, %s - %s (%s)\n",
             tokens[1],  //Streat
@@ -54,5 +54,91 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
     
         // log message
         logEvent("WARNING", "Customer record invalid - incorrect field count.");
+    }
+}
+
+
+
+void mainMenu(void) {
+    menuOptions choice;
+    printf("======================================\n");
+    printf("      Welcome to the PWH System!      \n");
+    printf("======================================\n");
+    do {
+		//Display the menu
+		displayMainMenu();
+        choice = (menuOptions)getValidIntegerInput(5);
+        switch (choice) {
+        case LOAD_DATABASE:
+			//Huh, we need that but we already load everthing in each function, we need to think to meet that
+            break;
+        case LOAD_ORDER:
+			loadOrderDB();
+            break;
+        case LOAD_PARTS:
+			loadPartsDB();
+            break;
+        case LOAD_CUSTOMER:
+			loadCustomerDB();
+			break;
+		case EXIT:
+			printf("Exiting...\n");
+			break;
+        default:
+            printf("Please only enter the valid integer options (1,5)\n");
+        }
+    } while (choice != EXIT);
+}
+
+
+void displayMainMenu(void) {
+	printf("\n1. Load Database\n");
+	printf("2. Load Order Database\n");
+	printf("3. Load Parts Database\n");
+	printf("4. Load Customer Database\n");
+	printf("5. Exit\n");
+    printf("Please select an option: ");
+}
+
+
+//FUNCTION   : GetValidIntegerInput     
+//DESCRIPTION: Makes sure that the input read from keyboard is based on just the range from 1 to the max_choice
+//PARAMETERS : none     
+//RETURNS    : The valid integer
+int getValidIntegerInput(int max_choice)
+{
+    int value;
+    char buffer[100];
+
+    while (1)
+    {
+        //Prompt for input
+        if (fgets(buffer, sizeof(buffer), stdin))
+        {
+            //Remove trailing newline
+            if (sscanf_s(buffer, "%d", &value) == 1)
+            {
+                char* extra_char = buffer;
+
+                //Skip the number
+                while (*extra_char >= '0' && *extra_char <= '9')
+                {
+                    extra_char++;
+                }
+
+                //Skip spaces and newlines
+                while (*extra_char == ' ' || *extra_char == '\n')
+                {
+                    extra_char++;
+                }
+
+                //Verifying range
+                if (value >= 1 && value <= max_choice && *extra_char == '\0')
+                {
+                    return value;
+                }
+            }
+        }
+        printf("Invalid input! Please enter a number from 1 to %d: \n", max_choice);
     }
 }
