@@ -76,32 +76,6 @@ char* getFilePath() {
 // PARAMETERS : None
 // RETURNS : None.
 //
-//void loadOrderDB() {
-//	printf("Loading Order Database...\n");
-//	//Open the file for reading
-//    FILE* file = NULL;
-//    if (openFile(&file,"orders.db", "r") != 0 || !file) {
-//        return;
-//    }
-//
-//	//Read the file line by line
-//    char lineBuffer[300]; 
-//    while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
-//
-//        //Stripping the newline for my colleagues for strtok because I am a nice guy
-//        size_t len = strlen(lineBuffer);
-//        if (len > 0 && lineBuffer[len - 1] == '\n') {
-//            lineBuffer[len - 1] = '\0';
-//        }
-//
-//        //WHOEVER IS DOING THE ORDER DB, ADD YOUR STRTOK CODE HERE TO TOKENIZE
-//        printf("Line: %s\n", lineBuffer);
-//
-//    }
-//
-//    closeFile(file);
-//}
-
 void loadOrderDB() {
     printf("Loading Order Database...\n");
     
