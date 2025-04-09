@@ -30,5 +30,13 @@ void ValidateAndPrintOrder(const char* lineBuffer)
 	//Only prints the valid orders
 	if (fieldCount == 11) {
 		printf("Valid Order: %s\n", lineBuffer);
+	
+		//log message
+		logEvent("INFO", "Order record processed successfully.");;
+	}
+	else 
+	{
+		//log message
+		logEvent("WARNING", "Order record invalid - incorrect token count.");
 	}
 }

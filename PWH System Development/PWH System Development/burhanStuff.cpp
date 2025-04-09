@@ -29,8 +29,14 @@ void listValidParts(const char* lineBuffer)
     // Check if the record has exactly 7 fields so that it passes as valid, if not its invalid.
     if (tokenCount == 7) {
         printf("Valid Part: %s\n", lineBuffer);
+
+        //log message
+        logEvent("INFO", "Part record processed successfully.");
     }
     else {
         printf("Invalid Part: %s (Token Count: %d)\n", lineBuffer, tokenCount);
+        
+        //log message
+        logEvent("WARNING", "Part record invalid - incorrect token count.");
     }
 }

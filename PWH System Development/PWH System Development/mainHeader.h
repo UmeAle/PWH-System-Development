@@ -7,7 +7,7 @@
 #include <errno.h>
 #include <windows.h>
 #include <direct.h>
-
+#include<time.h>
 //Constants
 #define MAX_PATH_LEN 260
 #define _CRT_SECURE_NO_WARNINGS
@@ -26,4 +26,4 @@ void loadAllDatabases();
 void ValidateAndPrintOrder(const char* lineBuffer);
 void listValidParts(const char* lineBuffer);
 void ValidateAndPrintCustomer(const char* lineBuffer);
-
+void logEvent(const char* logLevel, const char* message);

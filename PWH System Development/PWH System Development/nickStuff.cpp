@@ -12,6 +12,7 @@ errno_t openFile(FILE** file, const char* filename, const char* mode) {
     errno_t err = fopen_s(file, filename, mode);
     if (err != 0 || *file == NULL) {
         perror("Error opening file");
+        logEvent("ERROR", "Error opening file.");
         return NULL;
     }
     return err;
@@ -41,6 +42,10 @@ char* getFilePath() {
     char* path = (char*)malloc(MAX_PATH_LEN);
     if (!path) {
         fprintf(stderr, "Memory allocation failed\n");
+       
+        // log message
+        logEvent("ERROR", "Memory allocation failed for file path.");
+        
         exit(EXIT_FAILURE);
     }
 
@@ -48,6 +53,10 @@ char* getFilePath() {
     printf("Enter the file path for the datbase files (relative or absolute): ");
     if (fgets(path, MAX_PATH_LEN, stdin) == NULL) {
         fprintf(stderr, "Error reading input\n");
+
+        // log message
+        logEvent("ERROR", "Error reading input for file path.");
+        
         free(path);
         return NULL;
     }
@@ -95,11 +104,21 @@ char* getFilePath() {
 
 void loadOrderDB() {
     printf("Loading Order Database...\n");
+    
     //Open the file for reading
+    
+    //log message
+    logEvent("INFO", "Loading Order Database: Started.");
+    
     FILE* file = NULL;
     if (openFile(&file, "orders.db", "r") != 0 || !file) {
+        // log message
+        logEvent("ERROR", "Failed to open orders.db file.");
         return;
     }
+
+    //log message
+    logEvent("INFO", "orders.db opened successfully.");
 
     //Read the file line by line
     char lineBuffer[300];
@@ -117,6 +136,10 @@ void loadOrderDB() {
     }
 
     closeFile(file);
+
+    //log message
+    logEvent("INFO", "Loading Order Database: Completed.");
+
 }
 
 //
@@ -128,11 +151,18 @@ void loadOrderDB() {
 void loadCustomerDB() {
 	printf("Loading Customer Database...\n");
     
+    //log message
+    logEvent("INFO", "Loading Customer Database: Started.");
+
 	//Open the file for reading
     FILE* file = NULL;
     if (openFile(&file, "customers.db", "r") != 0 || !file) {
+        // log message
+        logEvent("ERROR", "Failed to open customers.db file.");
         return;
     }
+
+    
 
 	//Read the file line by line
     char lineBuffer[300];
@@ -144,6 +174,7 @@ void loadCustomerDB() {
             lineBuffer[len - 1] = '\0';
         }
 
+       
 		//WHOEVER IS DOING THE CUSTOMER DB, ADD YOUR STRTOK CODE HERE TO TOKENIZE
         ValidateAndPrintCustomer(lineBuffer);
 
@@ -152,6 +183,10 @@ void loadCustomerDB() {
 
 	// Close the file
     closeFile(file);
+
+    // log message
+    logEvent("INFO", "Loading Customer Database: Completed.");
+
 }
 
 
@@ -164,9 +199,14 @@ void loadCustomerDB() {
 void loadPartsDB() {
     printf("Loading Parts Database...\n");
 
+    // log message
+    logEvent("INFO", "Loading Parts Database: Started.");
+    
 	//Open the file for reading.
     FILE* file = NULL;
     if (openFile(&file, "parts.db", "r") != 0 || !file) {
+        // log message
+        logEvent("ERROR", "Failed to open parts.db file.");
         return;
     }
 
@@ -186,6 +226,9 @@ void loadPartsDB() {
     }
 
     closeFile(file);
+
+    // log message
+    logEvent("INFO", "Loading Parts Database: Completed.");
 }
 
 //
@@ -195,9 +238,12 @@ void loadPartsDB() {
 // RETURNS : None.
 //
 void loadAllDatabases() {
-	loadOrderDB();
+	// log message 
+    logEvent("INFO", "Starting to load all databases.");
+    loadOrderDB();
 	loadCustomerDB();
 	loadPartsDB();
-
+    // log message
+    logEvent("INFO", "All databases loaded successfully.");
 }
 

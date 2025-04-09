@@ -26,8 +26,17 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
     //If it has exactly 9 fields, it's considered valid
     if (fieldCount == 9) {
         printf("Valid Customer: %s\n", lineBuffer);
+        
+        
+        //log message
+        logEvent("INFO", "Customer record processed successfully.");
+      
     }
-    else {
+    else 
+    {
         printf("Invalid Customer: %s (Fields found: %d)\n", lineBuffer, fieldCount);
+    
+        // log message
+        logEvent("WARNING", "Customer record invalid - incorrect field count.");
     }
 }
