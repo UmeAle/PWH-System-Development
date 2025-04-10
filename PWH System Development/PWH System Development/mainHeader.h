@@ -47,3 +47,4 @@ void logEvent(const char* logLevel, const char* message);
 void mainMenu(void);
 int getValidIntegerInput(int max_choice);
 void displayMainMenu(void);
+int matchesRegex(const char* pattern, const char* str);
