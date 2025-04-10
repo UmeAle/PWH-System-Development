@@ -8,7 +8,7 @@
 // PARAMETERS  : const char* lineBuffer
 // RETURNS     : None
 //
-void ValidateAndPrintParts(char* lineBuffer)
+void listValidParts(const char* lineBuffer)
 {
     int tokenCount = 0;
     char tempLine[300];

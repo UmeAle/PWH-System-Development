@@ -103,6 +103,9 @@ void loadOrderDB(void) {
         if (len > 0 && lineBuffer[len - 1] == '\n') {
             lineBuffer[len - 1] = '\0';
         }
+
+        //Calls the validate and print function with line Buffer
+        ValidateAndPrintOrder(lineBuffer);
        
     }
 
@@ -147,7 +150,7 @@ void loadCustomerDB(void) {
 
        
 		//WHOEVER IS DOING THE CUSTOMER DB, ADD YOUR STRTOK CODE HERE TO TOKENIZE
-        //ValidateAndPrintCustomer(lineBuffer);
+        ValidateAndPrintCustomer(lineBuffer);
 
 
     }
@@ -193,10 +196,27 @@ void loadPartsDB(void) {
 
         // Calls listValidParts func for each line in the parts database
         // to ensure the record has exactly 7 fields.
-        //listValidParts(lineBuffer);
+        listValidParts(lineBuffer);
     }
+
     closeFile(file);
 
     // log message
     logEvent("INFO", "Loading Parts Database: Completed.");
 }
+
+//
+// FUNCTION : loadAllDatabases
+// DESCRIPTION : Calls the load functions for all databases.
+// PARAMETERS : None.
+// RETURNS : None.
+//
+void loadAllDatabases(void) {
+	// log message 
+    loadOrderDB();
+	loadCustomerDB();
+	loadPartsDB();
+    // log message
+    logEvent("INFO", "All databases loaded successfully.");
+}
+
