@@ -73,15 +73,19 @@ void mainMenu(void) {
         choice = (menuOptions)getValidIntegerInput(5);
         switch (choice) {
         case LOAD_DATABASE:
-			//Huh, we need that but we already load everthing in each function, we need to think to meet that
+			logEvent("INFO", "Starting to load all databases.");
+			loadAllDatabases();
             break;
         case LOAD_ORDER:
-			loadOrderDB();
+            logEvent("INFO", "Starting to load order Database.");
+            loadOrderDB();
             break;
         case LOAD_PARTS:
+            logEvent("INFO", "Starting to load parts Database.");
 			loadPartsDB();
             break;
         case LOAD_CUSTOMER:
+            logEvent("INFO", "Starting to load customer Database.");
 			loadCustomerDB();
 			break;
 		case EXIT:

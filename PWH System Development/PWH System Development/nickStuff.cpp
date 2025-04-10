@@ -213,7 +213,6 @@ void loadPartsDB(void) {
 //
 void loadAllDatabases(void) {
 	// log message 
-    logEvent("INFO", "Starting to load all databases.");
     loadOrderDB();
 	loadCustomerDB();
 	loadPartsDB();
