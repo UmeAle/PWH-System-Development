@@ -13,6 +13,7 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
 	char* tokens[EXPECTED_FIELDS];
     char tempLine[300];
     char* context = NULL;
+	char log_message[MAX_LOG_LENGTH];
 
     //Make a copy of the original line to avoid modifying it directly
     strncpy_s(tempLine, lineBuffer, sizeof(tempLine));
@@ -45,7 +46,8 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
         
         
         //log message
-        logEvent("INFO", "Customer record processed successfully.");
+        snprintf(log_message, sizeof(log_message), "Custumer '%s' record processed successfully", tokens[0]);
+        logEvent("INFO", log_message);
       
     }
     else 
@@ -53,7 +55,7 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
         printf("Invalid Customer: %s (Fields found: %d)\n", lineBuffer, fieldCount);
     
         // log message
-        logEvent("WARNING", "Customer record invalid - incorrect field count.");
+        logEvent("Error", "Customer record invalid - incorrect field count.");
     }
 }
 

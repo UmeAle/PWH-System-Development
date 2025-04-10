@@ -17,6 +17,7 @@ void ValidateAndPrintOrder(const char* lineBuffer)
 	char* token;
 	char* tokens[EXPECTED_FIELDS];
 	char* context = NULL;
+	char log_message[MAX_LOG_LENGTH];
 	
 	//Copies the original line to avoid changes directly
 	strncpy_s(tempLine, lineBuffer, sizeof(tempLine));
@@ -49,7 +50,8 @@ void ValidateAndPrintOrder(const char* lineBuffer)
 		printf("========================\n\n");
 	
 		//log message
-		logEvent("INFO", "Order record processed successfully.");;
+		snprintf(log_message, sizeof(log_message), "Order '%s' record processed successfully", tokens[0]);
+		logEvent("INFO", log_message);
 	}
 	else 
 	{

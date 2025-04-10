@@ -12,6 +12,7 @@
 //Constants
 #define MAX_PATH_LEN 260
 #define _CRT_SECURE_NO_WARNINGS
+#define MAX_LOG_LENGTH 256
 
 //ENUMS
 typedef enum {

@@ -14,6 +14,7 @@ void listValidParts(const char* lineBuffer)
     char tempLine[300];
     char* context = NULL;
     char* tokens[7]; 
+	char log_message[MAX_LOG_LENGTH];
 
     //Makes a copy of the line because strtok_s will change it.
     strncpy_s(tempLine, lineBuffer, sizeof(tempLine));
@@ -39,11 +40,14 @@ void listValidParts(const char* lineBuffer)
         printf("Part ID: %s\n", tokens[6]);
         printf("====================================\n");
         
-       
-        logEvent("INFO", "Part record processed successfully.");
+       //Log Message
+        snprintf(log_message, sizeof(log_message), "Part '%s' record processed successfully", tokens[0]);
+        logEvent("INFO", log_message);
     }
     else {
         printf("Invalid Part: %s (Token Count: %d)\n", lineBuffer, tokenCount);
+        
+		//Log Message
         logEvent("Error","Part record invalid");
     }
 }

@@ -725,3 +725,169 @@
 [2025-04-10 11:01:54] [INFO]: Customer record processed successfully.
 [2025-04-10 11:01:54] [INFO]: Customer record processed successfully.
 [2025-04-10 11:01:54] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:19:00] [INFO]: Starting to load order Database.
+[2025-04-10 14:19:00] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:19:00] [INFO]: orders.db opened successfully.
+[2025-04-10 14:19:00] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:19:00] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:19:00] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:19:02] [INFO]: Starting to load parts Database.
+[2025-04-10 14:19:02] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:19:02] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:19:02] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:19:02] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:19:02] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:19:02] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:19:04] [INFO]: Starting to load customer Database.
+[2025-04-10 14:19:04] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:19:04] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:19:04] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:19:04] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:19:04] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:19:11] [INFO]: Starting to load all databases.
+[2025-04-10 14:19:11] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:19:11] [INFO]: orders.db opened successfully.
+[2025-04-10 14:19:11] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:19:11] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:19:11] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:19:11] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:19:11] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:19:11] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:19:11] [INFO]: All databases loaded successfully.
+[2025-04-10 14:19:52] [INFO]: Starting to load all databases.
+[2025-04-10 14:19:52] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:19:52] [INFO]: orders.db opened successfully.
+[2025-04-10 14:19:52] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:19:52] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:19:52] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:19:52] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:19:52] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:19:52] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:19:52] [INFO]: All databases loaded successfully.
+[2025-04-10 14:19:53] [INFO]: Starting to load order Database.
+[2025-04-10 14:19:53] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:19:53] [INFO]: orders.db opened successfully.
+[2025-04-10 14:19:53] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:19:53] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:19:53] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:19:54] [INFO]: Starting to load parts Database.
+[2025-04-10 14:19:54] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:19:54] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:19:54] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:19:54] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:19:54] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:19:54] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:19:56] [INFO]: Starting to load customer Database.
+[2025-04-10 14:19:56] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:19:56] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:19:56] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:19:56] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:19:56] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:20:05] [INFO]: Starting to load all databases.
+[2025-04-10 14:20:05] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:20:05] [INFO]: orders.db opened successfully.
+[2025-04-10 14:20:05] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:20:05] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:20:05] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:20:05] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:20:05] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:20:05] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:20:05] [INFO]: All databases loaded successfully.
+[2025-04-10 14:20:43] [INFO]: Starting to load all databases.
+[2025-04-10 14:20:43] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:20:43] [INFO]: orders.db opened successfully.
+[2025-04-10 14:20:43] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:20:43] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:20:43] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:20:43] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:20:43] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:20:43] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:20:43] [INFO]: All databases loaded successfully.
+[2025-04-10 14:21:44] [INFO]: Starting to load order Database.
+[2025-04-10 14:21:44] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:21:44] [INFO]: orders.db opened successfully.
+[2025-04-10 14:21:44] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:21:44] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:21:44] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:21:44] [INFO]: Starting to load parts Database.
+[2025-04-10 14:21:44] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:21:44] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:21:44] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:21:44] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:21:44] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:21:44] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:21:45] [INFO]: Starting to load customer Database.
+[2025-04-10 14:21:45] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:21:45] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:21:45] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:21:45] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:21:45] [INFO]: Loading Customer Database: Completed.
+[2025-04-10 14:22:17] [INFO]: Starting to load order Database.
+[2025-04-10 14:22:17] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:22:17] [INFO]: orders.db opened successfully.
+[2025-04-10 14:22:17] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:22:17] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:22:17] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:23:36] [INFO]: Starting to load order Database.
+[2025-04-10 14:23:36] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:23:36] [INFO]: orders.db opened successfully.
+[2025-04-10 14:23:36] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:23:36] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:23:36] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:23:48] [INFO]: Starting to load order Database.
+[2025-04-10 14:23:48] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:23:48] [INFO]: orders.db opened successfully.
+[2025-04-10 14:23:48] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:23:48] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:23:48] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:23:51] [INFO]: Starting to load order Database.
+[2025-04-10 14:23:51] [INFO]: Loading Order Database: Started.
+[2025-04-10 14:23:51] [INFO]: orders.db opened successfully.
+[2025-04-10 14:23:51] [INFO]: Order '20250220001' record processed successfully
+[2025-04-10 14:23:51] [INFO]: Order '20250223005' record processed successfully
+[2025-04-10 14:23:51] [INFO]: Loading Order Database: Completed.
+[2025-04-10 14:23:52] [INFO]: Starting to load parts Database.
+[2025-04-10 14:23:52] [INFO]: Loading Parts Database: Started.
+[2025-04-10 14:23:52] [INFO]: Part '1/4 inch flange bolt' record processed successfully
+[2025-04-10 14:23:52] [INFO]: Part '7/16 inch precision hex head' record processed successfully
+[2025-04-10 14:23:52] [INFO]: Part '1 1/2 inch lag bolt' record processed successfully
+[2025-04-10 14:23:52] [INFO]: Part '2 1/2 inch carriage bolt' record processed successfully
+[2025-04-10 14:23:52] [INFO]: Loading Parts Database: Completed.
+[2025-04-10 14:23:52] [INFO]: Starting to load customer Database.
+[2025-04-10 14:23:52] [INFO]: Loading Customer Database: Started.
+[2025-04-10 14:23:52] [INFO]: Custumer 'Smith, John' record processed successfully
+[2025-04-10 14:23:52] [INFO]: Custumer 'Devil, Cruella' record processed successfully
+[2025-04-10 14:23:52] [INFO]: Custumer 'Joes Garage' record processed successfully
+[2025-04-10 14:23:52] [INFO]: Loading Customer Database: Completed.
