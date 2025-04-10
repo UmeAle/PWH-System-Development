@@ -1,8 +1,18 @@
+/*
+* FILE : burhanStuff.cpp
+* PROJECT : PROG1175 - Assignment #4
+* PROGRAMMER : Burhan Shibli
+* FIRST VERSION : 2025-04-10
+* DESCRIPTION : Reads and validates each part record from the database.
+                Uses regex and prints the part if it's valid and logs the result.
+*/
+
+
 #include "mainHeader.h" 
 
 
 //
-// FUNCTION    : listValidParts
+// FUNCTION    : ValidateAndPrintPart
 // DESCRIPTION : Accepts a line from the parts database, tokenizes it using strtok_s with the pipe ('|') delimiter,
 //               counts the fields, and prints the record if exactly 7 fields are found.
 // PARAMETERS  : const char* lineBuffer
