@@ -1,6 +1,4 @@
-
 #include "mainHeader.h"
-
 
 //
 // FUNCTION : openFile
@@ -18,11 +16,10 @@ errno_t openFile(FILE** file, const char* filename, const char* mode) {
     return err;
 }
 
-
 //
 // FUNCTION : closeFile
-// DESCRIPTION : This function closed the already opened file. 
-// PARAMETERS : file, the refernce file that the file pointer is pointing to. 
+// DESCRIPTION : This function closes the already opened file. 
+// PARAMETERS : file, the reference file that the file pointer is pointing to. 
 // RETURNS : none.
 //
 void closeFile(FILE* file) {
@@ -32,191 +29,163 @@ void closeFile(FILE* file) {
 }
 
 //
-// FUNCTION : getFilePath
-// DESCRIPTION : This function prompts the user for a file path and returns it as a dynamically allocated string.
-// PARAMETERS : None.
-// RETURNS : A pointer to the dynamically allocated string containing the file path.
-char* getFilePath(void) {
-
-	//Allocate memory for the file path. I did this in case anyone else needs to use it in their functions.
-    char* path = (char*)malloc(MAX_PATH_LEN);
-    if (!path) {
-        fprintf(stderr, "Memory allocation failed\n");
-       
-        // log message
-        logEvent("ERROR", "Memory allocation failed for file path.");
-        
-        exit(EXIT_FAILURE);
-    }
-
-	//Prompt the user for the file path.
-    printf("Enter the file path for the datbase files (relative or absolute): ");
-    if (fgets(path, MAX_PATH_LEN, stdin) == NULL) {
-        fprintf(stderr, "Error reading input\n");
-
-        // log message
-        logEvent("ERROR", "Error reading input for file path.");
-        
-        free(path);
-        return NULL;
-    }
-
-    //Remove the newline and add the null terminator instead from fgets.
-    size_t len = strlen(path);
-    if (len > 0 && path[len - 1] == '\n') {
-        path[len - 1] = '\0';
-    }
-
-    return path;
-}
-
-//
 // FUNCTION : loadOrderDB
 // DESCRIPTION : Prompts the user for a file path, opens the file, reads each line, and processes it.
 // PARAMETERS : None
-// RETURNS : None.
+// RETURNS : char** (pointer to an array of strings).
 //
-void loadOrderDB(void) {
+char** loadOrderDB(void) {
     printf("Loading Order Database...\n");
-    
-    //Open the file for reading
-    
-    //log message
     logEvent("INFO", "Loading Order Database: Started.");
-    
+
+    //Open the file
     FILE* file = NULL;
     if (openFile(&file, "orders.db", "r") != 0 || !file) {
-        // log message
         logEvent("ERROR", "Failed to open orders.db file.");
-        return;
+        return NULL;
     }
 
-    //log message
-    logEvent("INFO", "orders.db opened successfully.");
+    //Initliaze variables for appending the line buffer into array
+    int capacity = 10;
+    int count = 0;
+    char** lines = (char**)malloc(capacity * sizeof(char*));
+    char lineBuffer[300];
 
     //Read the file line by line
-    char lineBuffer[300];
     while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
-
-        //Stripping the newline for my colleagues for strtok because I am a nice guy
         size_t len = strlen(lineBuffer);
         if (len > 0 && lineBuffer[len - 1] == '\n') {
             lineBuffer[len - 1] = '\0';
         }
 
-        //Calls the validate and print function with line Buffer
-        ValidateAndPrintOrder(lineBuffer);
-       
+        if (count >= capacity) {
+            capacity *= 2;
+            lines = (char**)realloc(lines, capacity * sizeof(char*));
+        }
+
+        lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
+        strcpy_s(lines[count], strlen(lineBuffer) + 1, lineBuffer);
+        count++;
     }
 
+    //Close it
     closeFile(file);
-
-    //log message
     logEvent("INFO", "Loading Order Database: Completed.");
 
+    //Null termiante the index and the array
+    lines = (char**)realloc(lines, (count + 1) * sizeof(char*));
+    lines[count] = NULL;
+    return lines;
 }
 
 //
 // FUNCTION : loadCustomerDB
 // DESCRIPTION : Prompts user for a customer database file, opens it, reads line by line, and processes each line.
 // PARAMETERS : None currently?
-// RETURNS : None.
+// RETURNS : char** (pointer to an array of strings).
 //
-void loadCustomerDB(void) {
-	printf("Loading Customer Database...\n");
-    
-    //log message
+char** loadCustomerDB(void) {
+    printf("Loading Customer Database...\n");
     logEvent("INFO", "Loading Customer Database: Started.");
 
-	//Open the file for reading
+    //Open the file
     FILE* file = NULL;
     if (openFile(&file, "customers.db", "r") != 0 || !file) {
-        // log message
         logEvent("ERROR", "Failed to open customers.db file.");
-        return;
+        return NULL;
     }
 
-    
-
-	//Read the file line by line
+    //Initialize variables for appending the line buffer into array
+    int capacity = 10;
+    int count = 0;
+    char** lines = (char**)malloc(capacity * sizeof(char*));
     char lineBuffer[300];
-    while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
 
-        //Remvoing the newline off the end of the input once again for strtok use.
+    //Read the file line by line
+    while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
         size_t len = strlen(lineBuffer);
         if (len > 0 && lineBuffer[len - 1] == '\n') {
             lineBuffer[len - 1] = '\0';
         }
 
-       
-		//WHOEVER IS DOING THE CUSTOMER DB, ADD YOUR STRTOK CODE HERE TO TOKENIZE
-        ValidateAndPrintCustomer(lineBuffer);
+        if (count >= capacity) {
+            capacity *= 2;
+            lines = (char**)realloc(lines, capacity * sizeof(char*));
+        }
 
-
+        lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
+        strcpy_s(lines[count], strlen(lineBuffer) + 1, lineBuffer);
+        count++;
     }
 
-	// Close the file
+    //Close it
     closeFile(file);
-
-    // log message
     logEvent("INFO", "Loading Customer Database: Completed.");
 
+    //Null terminate the index and the array
+    lines = (char**)realloc(lines, (count + 1) * sizeof(char*));
+    lines[count] = NULL;
+    return lines;
 }
-
 
 //
 // FUNCTION : loadPartsDB
 // DESCRIPTION : Prompts user for the parts database file, opens it, and reads line by line for processing.
 // PARAMETERS : None.
-// RETURNS : None.
+// RETURNS : char** (pointer to an array of strings).
 //
-void loadPartsDB(void) {
+char** loadPartsDB(void) {
     printf("Loading Parts Database...\n");
-
-    // log message
     logEvent("INFO", "Loading Parts Database: Started.");
-    
-	//Open the file for reading.
+
+    //Open the file
     FILE* file = NULL;
     if (openFile(&file, "parts.db", "r") != 0 || !file) {
-        // log message
         logEvent("ERROR", "Failed to open parts.db file.");
-        return;
+        return NULL;
     }
 
-    //Read the file line by line.
+    //Initialize variables for appending the line buffer into array
+    int capacity = 10;
+    int count = 0;
+    char** lines = (char**)malloc(capacity * sizeof(char*));
     char lineBuffer[300];
+
+    //Read the file line by line
     while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
-        
-		//Stripping the newline for my colleagues for strtok because I am a nice guy.
         size_t len = strlen(lineBuffer);
         if (len > 0 && lineBuffer[len - 1] == '\n') {
             lineBuffer[len - 1] = '\0';
         }
 
-        // Calls listValidParts func for each line in the parts database
-        // to ensure the record has exactly 7 fields.
-        listValidParts(lineBuffer);
+        if (count >= capacity) {
+            capacity *= 2;
+            lines = (char**)realloc(lines, capacity * sizeof(char*));
+        }
+
+        lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
+        strcpy_s(lines[count], strlen(lineBuffer) + 1, lineBuffer);
+        count++;
     }
 
+    //Close it
     closeFile(file);
-
-    // log message
     logEvent("INFO", "Loading Parts Database: Completed.");
+
+    //Null terminate the index and the array
+    lines = (char**)realloc(lines, (count + 1) * sizeof(char*)); // Ensure null-termination
+    lines[count] = NULL; // Null-terminate the array
+    return lines;
 }
 
 //
-// FUNCTION : loadAllDatabases
-// DESCRIPTION : Calls the load functions for all databases.
-// PARAMETERS : None.
+// FUNCTION : freeLines
+// DESCRIPTION : Frees the memory allocated for the lines array.
+// PARAMETERS : lines, the array of strings to be freed, and count, the number of lines.
 // RETURNS : None.
-//
-void loadAllDatabases(void) {
-	// log message 
-    loadOrderDB();
-	loadCustomerDB();
-	loadPartsDB();
-    // log message
-    logEvent("INFO", "All databases loaded successfully.");
+void freeLines(char** lines, int count) {
+    for (int i = 0; i < count; ++i) {
+        free(lines[i]);
+    }
+    free(lines);
 }
-
