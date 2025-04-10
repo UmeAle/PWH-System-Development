@@ -21,9 +21,9 @@
 //ENUMS
 typedef enum {
 	LOAD_DATABASE = 1,
-	LOAD_ORDER,
-	LOAD_PARTS,
-	LOAD_CUSTOMER,
+	LIST_CUSTOMER,
+	LIST_PART,
+	LIST_ORDER,
 	EXIT,
 } menuOptions;
 
