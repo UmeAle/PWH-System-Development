@@ -8,6 +8,7 @@
 // RETURNS     : None
 void ValidateAndPrintCustomer(char* lineBuffer)
 {
+    char* 
 	const int EXPECTED_FIELDS = 12; //12, not 9 =)
     int fieldCount = 0;
 	char* tokens[EXPECTED_FIELDS];
@@ -76,21 +77,21 @@ void mainMenu(void) {
         switch (choice) {
         case LOAD_DATABASE:
 			logEvent("INFO", "Starting to load all databases.");
-			order = loadOrderDB();
-			part = loadPartsDB();
-			customer = loadCustomerDB();
+            char** order = loadOrderDB();
+            char** part = loadPartsDB();
+            char** customer = loadCustomerDB();
             break;
         case LIST_CUSTOMER:
             logEvent("INFO", "Starting to load custumer Database.");
-			ValidateAndPrintCustomers(customer); //custumerhere
+			ValidateAndPrintCustomers(//customer); //custumerhere
             break;
         case LIST_PART:
             logEvent("INFO", "Starting to load parts Database.");
-			ValidateAndPrintParts(part); //
+			ValidateAndPrintParts(//part); //
             break;
         case LIST_ORDER:
             logEvent("INFO", "Starting to load order Database.");
-			ValidateAndPrintOrders(order); //custumer here
+			ValidateAndPrintOrders(//order); //custumer here
 			break;
 		case EXIT:
 			printf("Exiting...\n");

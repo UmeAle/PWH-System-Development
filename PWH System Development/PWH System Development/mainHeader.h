@@ -32,9 +32,9 @@ typedef enum {
 errno_t openFile(FILE** file, const char* filename, const char* mode);
 void closeFile(FILE* file);
 char* getFilePath();
-void loadOrderDB();
-void loadPartsDB();
-void loadCustomerDB();
+char** loadOrderDB();
+char** loadPartsDB();
+char** loadCustomerDB();
 void ValidateAndPrintOrders(const char* lineBuffer);
 void ValidateAndPrintParts(const char* lineBuffer);
 void ValidateAndPrintCustomers(const char* lineBuffer);
