@@ -62,17 +62,7 @@ char** loadOrderDB(void) {
             lineBuffer[len - 1] = '\0';
         }
 
-		//If the array is full, double its size
-        if (count >= capacity) {
-            capacity *= 2;
-            lines = (char**)realloc(lines, capacity * sizeof(char*));
-        }
 
-		//Add it to the correct index in the array
-        lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
-        strcpy_s(lines[count], strlen(lineBuffer) + 1, lineBuffer);
-        count++;
-    }
 
 	//Close the file
     closeFile(file);
@@ -116,11 +106,6 @@ char** loadCustomerDB(void) {
             lineBuffer[len - 1] = '\0';
         }
 
-		//If the array is full, double its size
-        if (count >= capacity) {
-            capacity *= 2;
-            lines = (char**)realloc(lines, capacity * sizeof(char*));
-        }
 
 		//Add it to the correct index in the array
         lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
@@ -171,11 +156,6 @@ char** loadPartsDB(void) {
             lineBuffer[len - 1] = '\0';
         }
 
-		//If the array is full, double its size
-        if (count >= capacity) {
-            capacity *= 2;
-            lines = (char**)realloc(lines, capacity * sizeof(char*));
-        }
 
         //Add it to the correct index in the array
         lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
@@ -206,3 +186,19 @@ void freeLines(char** lines, int count) {
     }
     free(lines);
 }
+
+//
+// FUNCTION : loadAllDatabases
+// DESCRIPTION : Calls the load functions for all databases.
+// PARAMETERS : None.
+// RETURNS : None.
+//
+void loadAllDatabases(void) {
+	// log message 
+    loadOrderDB();
+	loadCustomerDB();
+	loadPartsDB();
+    // log message
+    logEvent("INFO", "All databases loaded successfully.");
+}
+

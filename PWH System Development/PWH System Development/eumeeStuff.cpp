@@ -9,7 +9,7 @@
 // PARAMETERS  : const char* lineBuffer - The order line (string) to be validated.
 // RETURNS     : NONE
 //
-void ValidateAndPrintOrder(char* lineBuffer)
+void ValidateAndPrintOrder(const char* lineBuffer)
 {
 	const int EXPECTED_FIELDS = 11;
 	int fieldCount = 0;
