@@ -1,4 +1,10 @@
 #include "mainHeader.h"
+// FILE        : nickStuff.cpp
+// DESCRIPTION : Contains the functions to open, load, and close files.
+// AUTHOR      : Nick Reilly
+// DATE        : 04/09/2025
+
+
 
 //
 // FUNCTION : openFile

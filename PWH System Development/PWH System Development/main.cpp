@@ -1,4 +1,8 @@
 #include "mainHeader.h"
+// FILE        : main.cpp
+// DESCRIPTION : Runs the program.
+// DATE        : 04/09/2025
+//
 
 void logEvent(const char* logLevel, const char* message);
 

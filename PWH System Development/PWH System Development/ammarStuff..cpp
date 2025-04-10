@@ -1,4 +1,4 @@
-// FILE        : ammarStuff..cpp
+// FILE        : ammarStuff.cpp
 // DESCRIPTION : Contains the logging functionality for the application.
 //               Implements the logEvent function to write log messages with a
 //               timestamp and log level to logfile.txt.

@@ -1,4 +1,9 @@
 #pragma once
+// FILE        : mainHeader.h
+// DESCRIPTION : Contains the prototypes, libraries, enums and regex.
+// DATE        : 04/09/2025
+
+
 
 //Libraries
 #include <stdio.h>

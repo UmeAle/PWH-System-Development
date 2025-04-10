@@ -1,4 +1,10 @@
 #include "mainHeader.h"
+// FILE        : eumeeStuff.cpp
+// DESCRIPTION : Contains the validations and printing functions for
+//				 orders.
+// AUTHOR      : Eumee Garcia
+// DATE        : 04/09/2025
+
 
 
 //

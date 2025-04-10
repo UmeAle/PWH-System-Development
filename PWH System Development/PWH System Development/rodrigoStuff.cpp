@@ -1,4 +1,11 @@
 #include "mainHeader.h"
+// FILE        : rodrigoStuff.cpp
+// DESCRIPTION : Contains the validations and printing functions for
+//				 customers.
+// AUTHOR      : Rodrigo Gomez
+// DATE        : 04/09/2025
+
+
 
 
 // FUNCTION    : ValidateAndPrintCustomer
