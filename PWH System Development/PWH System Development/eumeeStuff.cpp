@@ -61,31 +61,24 @@ void ValidateAndPrintOrder(char** lineBuffer)
 
 
 	//Only prints the valid orders
-	if (fieldCount == EXPECTED_FIELDS) {
-		printf("\n===== Valid Order =====\n");
-		printf("Order ID: %s\n", tokens[0]);
-		printf("Date: %s \n", tokens[1]); 
-		printf("Status: %s\n", tokens[2]);
-		printf("Customer ID: %s\n", tokens[3]);
-		printf("Order Total: $%s\n", tokens[4]);
-		printf("----- Order Parts-----\n");
-		printf("Distinct Parts: %s\n", tokens[5]);
-		printf("Total Parts: %s\n", tokens[6]);
-		printf("Part 1 ID: %s\n", tokens[7]);
-		printf("Part 1 Qty: %s\n", tokens[8]);
-		printf("Part 2 ID: %s\n", tokens[9]);
-		printf("Part 2 Qty: %s\n", tokens[10]);
-		printf("========================\n\n");
+	printf("\n===== Valid Order =====\n");
+	printf("Order ID: %s\n", tokens[0]);
+	printf("Date: %s \n", tokens[1]); 
+	printf("Status: %s\n", tokens[2]);
+	printf("Customer ID: %s\n", tokens[3]);
+	printf("Order Total: $%s\n", tokens[4]);
+	printf("----- Order Parts-----\n");
+	printf("Distinct Parts: %s\n", tokens[5]);
+	printf("Total Parts: %s\n", tokens[6]);
+	printf("Part 1 ID: %s\n", tokens[7]);
+	printf("Part 1 Qty: %s\n", tokens[8]);
+	printf("Part 2 ID: %s\n", tokens[9]);
+	printf("Part 2 Qty: %s\n", tokens[10]);
+	printf("========================\n\n");
 	
-		//log message
-		snprintf(log_message, sizeof(log_message), "Order '%s' record processed successfully", tokens[0]);
-		logEvent("INFO", log_message);
-	}
-	else 
-	{
-		//log message
-		logEvent("WARNING", "Order record invalid - incorrect token count.");
-	}
+	//log message
+	snprintf(log_message, sizeof(log_message), "Order '%s' record processed successfully", tokens[0]);
+	logEvent("INFO", log_message);
 	i++;
 	}  // Process next record in the array
 }

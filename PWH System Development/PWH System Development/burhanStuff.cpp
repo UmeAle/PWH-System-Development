@@ -14,7 +14,6 @@ void ValidateAndPrintPart(char** lineBuffer)
     int i = 0;
    
     while (lineBuffer[i] != NULL) {
-        int fieldCount = 0;
         int tokenCount = 0;
         char tempLine[300];
         char* context = NULL;
@@ -32,9 +31,9 @@ void ValidateAndPrintPart(char** lineBuffer)
             token = strtok_s(NULL, "|", &context); // Get the next token.
         }
 
-        if (fieldCount != EXPECTED_FIELDS)
+        if (tokenCount != EXPECTED_FIELDS)
         {
-            logEvent("WARNING", "Order record invalid - incorrect token count");
+            logEvent("ERROR", "Part record invalid - incorrect token count");
             return;
         }
 
@@ -46,33 +45,26 @@ void ValidateAndPrintPart(char** lineBuffer)
             !matchesRegex(RX_PART_STATUS, tokens[5]) ||
             !matchesRegex(RX_ID, tokens[6]))
         {
-            logEvent("ERROR", "Customer record invalid - field format error.");
+            logEvent("ERROR", "Part record invalid - field format error.");
             return;
         }
 
         // Check if the record has exactly 7 fields so that it passes as valid, if not its invalid.
-        if (tokenCount == 7) {
-            printf("\n");
-            printf("=============Valid Part=============\n");
-            printf("Part Name: %s\n", tokens[0]);
-            printf("Part Number: %s\n", tokens[1]);
-            printf("Part Location: %s\n", tokens[2]);
-            printf("Part Cost: $%s\n", tokens[3]);
-            printf("Quantity On Hand: %s\n", tokens[4]);
-            printf("Part Status: %s\n", tokens[5]);
-            printf("Part ID: %s\n", tokens[6]);
-            printf("====================================\n");
+        printf("\n");
+        printf("=============Valid Part=============\n");
+        printf("Part Name: %s\n", tokens[0]);
+        printf("Part Number: %s\n", tokens[1]);
+        printf("Part Location: %s\n", tokens[2]);
+        printf("Part Cost: $%s\n", tokens[3]);
+        printf("Quantity On Hand: %s\n", tokens[4]);
+        printf("Part Status: %s\n", tokens[5]);
+        printf("Part ID: %s\n", tokens[6]);
+        printf("====================================\n");
 
-            //Log Message
-            snprintf(log_message, sizeof(log_message), "Part '%s' record processed successfully", tokens[0]);
-            logEvent("INFO", log_message);
-        }
-        else {
-            printf("Invalid Part: %s (Token Count: %d)\n", lineBuffer[i], tokenCount);
-
-            //Log Message
-            logEvent("Error", "Part record invalid");
-        }
+        //Log Message
+        snprintf(log_message, sizeof(log_message), "Part '%s' record processed successfully", tokens[0]);
+        logEvent("INFO", log_message);
+        
         i++;
-    }  // Process next record in the array
-}
+    }
+ }  // Process next record in the array
