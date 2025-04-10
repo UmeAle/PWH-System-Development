@@ -28,7 +28,19 @@ typedef enum {
 } menuOptions;
 
 
-//Structs
+//Regex Pattern
+static const char* RX_NAME = R"(^.{1,50}$)";      
+static const char* RX_ADDRESS = R"(^.{1,100}$)";    
+static const char* RX_CITY = R"(^.{1,100}$)";
+static const char* RX_PROVINCE = R"(^[A-Z]{2}$)";
+static const char* RX_POSTAL = R"(^[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d$)";
+static const char* RX_PHONE = R"(^\d{3}-\d{3}-\d{4}$)";
+static const char* RX_EMAIL = R"(^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$)";
+static const char* RX_ID = R"(^(?:[1-9]\d*)$)";
+static const char* RX_MONEY_POS = R"(^(?:\d+(?:\.\d{1,2})?)$)";
+static const char* RX_MONEY_NONNEG = R"(^(?:\d+(?:\.\d{1,2})?)$)";
+static const char* RX_DATE = R"(^(?:\d{4}-\d{2}-\d{2})$)";
+static const char* RX_DATE_OPT = R"(^$|^\d{4}-\d{2}-\d{2}$)";
 
 
 //Prototypes

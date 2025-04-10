@@ -14,6 +14,7 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
     char tempLine[300];
     char* context = NULL;
 	char log_message[MAX_LOG_LENGTH];
+	int valid = 0;
 
     //Make a copy of the original line to avoid modifying it directly
     strncpy_s(tempLine, lineBuffer, sizeof(tempLine));
@@ -25,38 +26,53 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
         tokens[fieldCount++] = token;
         token = strtok_s(NULL, "|", &context);
     }
+    
+
+    //Validating the amount of fields
+    if (fieldCount != EXPECTED_FIELDS) {
+        logEvent("ERROR", "Customer record invalid - incorrect field count.");
+        return;
+    }
+
+    //Validating with regex
+    if (!matchesRegex(RX_NAME, tokens[0]) ||
+        !matchesRegex(RX_ADDRESS, tokens[1]) ||
+        !matchesRegex(RX_CITY, tokens[2]) ||
+        !matchesRegex(RX_PROVINCE, tokens[3]) ||
+        !matchesRegex(RX_POSTAL, tokens[4]) ||
+        !matchesRegex(RX_PHONE, tokens[5]) ||
+        !matchesRegex(RX_EMAIL, tokens[6]) ||
+        !matchesRegex(RX_ID, tokens[7]) ||
+        !matchesRegex(RX_MONEY_POS, tokens[8]) ||
+        !matchesRegex(RX_MONEY_NONNEG, tokens[9]) ||
+        !matchesRegex(RX_DATE_OPT, tokens[10]) ||
+        !matchesRegex(RX_DATE, tokens[11]))
+    {
+        logEvent("ERROR", "Customer record invalid - field format error.");
+        return;
+    }
 
     //If it has exactly 12 fields, it's considered valid
-    if (fieldCount == EXPECTED_FIELDS) {
-        printf("\n===== Valid Customer =====\n");
-        printf("Name: %s\n", tokens[0]);
-        printf("Address: %s, %s - %s (%s)\n",
-            tokens[1],  //Streat
-            tokens[2],  //City
-            tokens[3],  //Procince
-            tokens[4]); //Postal code
-        printf("Phone: %s\n", tokens[5]);
-        printf("Email: %s\n", tokens[6]);
-        printf("ID: %s\n", tokens[7]);
-        printf("Credit Limit: %s\n", tokens[8]);
-        printf("Account Ballance: %s\n", tokens[9]); 
-        printf("Last Payment Made: %s\n", tokens[10]);
-        printf("Join Date: %s\n", tokens[11]);
-        printf("========================\n\n");
+    printf("\n===== Valid Customer =====\n");
+    printf("Name: %s\n", tokens[0]);
+    printf("Address: %s, %s - %s (%s)\n",
+        tokens[1],  //Streat
+        tokens[2],  //City
+        tokens[3],  //Procince
+        tokens[4]); //Postal code
+    printf("Phone: %s\n", tokens[5]);
+    printf("Email: %s\n", tokens[6]);
+    printf("ID: %s\n", tokens[7]);
+    printf("Credit Limit: %s\n", tokens[8]);
+    printf("Account Ballance: %s\n", tokens[9]); 
+    printf("Last Payment Made: %s\n", tokens[10]);
+    printf("Join Date: %s\n", tokens[11]);
+    printf("========================\n\n");
         
         
-        //log message
-        snprintf(log_message, sizeof(log_message), "Custumer '%s' record processed successfully", tokens[0]);
-        logEvent("INFO", log_message);
-      
-    }
-    else 
-    {
-        printf("Invalid Customer: %s (Fields found: %d)\n", lineBuffer, fieldCount);
-    
-        // log message
-        logEvent("Error", "Customer record invalid - incorrect field count.");
-    }
+    //log message
+    snprintf(log_message, sizeof(log_message), "Custumer '%s' record processed successfully", tokens[0]);
+    logEvent("INFO", log_message);
 }
 
 
