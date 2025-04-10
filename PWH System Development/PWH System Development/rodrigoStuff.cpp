@@ -154,3 +154,27 @@ int getValidIntegerInput(int max_choice)
         printf("Invalid input! Please enter a number from 1 to %d: \n", max_choice);
     }
 }
+
+
+//FUNCTION: matchesRegex
+//DESCRIPTION: Uses std::regex to check if 'str' matches 'pattern'
+//PARAMETERS:
+// pattern - the regex pattern string
+// str     - the string to test
+//RETURNS: int - 1 if it matches, 0 otherwise
+int matchesRegex(const char* pattern, const char* str)
+{
+    try
+    {
+        std::regex re(pattern);
+        if (std::regex_match(str, re))
+        {
+            return 1;
+        }
+    }
+    catch (const std::regex_error& e)
+    {
+        std::cerr << "Regex error: " << e.what() << std::endl;
+    }
+    return 0;
+}

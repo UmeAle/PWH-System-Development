@@ -9,6 +9,10 @@
 #include <direct.h>
 #include <time.h>
 
+//CPP libraries
+#include <iostream>
+#include <regex>
+
 //Constants
 #define MAX_PATH_LEN 260
 #define _CRT_SECURE_NO_WARNINGS
