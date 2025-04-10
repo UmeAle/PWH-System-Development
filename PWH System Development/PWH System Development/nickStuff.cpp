@@ -1,6 +1,4 @@
-
 #include "mainHeader.h"
-
 
 //
 // FUNCTION : openFile
@@ -18,11 +16,10 @@ errno_t openFile(FILE** file, const char* filename, const char* mode) {
     return err;
 }
 
-
 //
 // FUNCTION : closeFile
-// DESCRIPTION : This function closed the already opened file. 
-// PARAMETERS : file, the refernce file that the file pointer is pointing to. 
+// DESCRIPTION : This function closes the already opened file. 
+// PARAMETERS : file, the reference file that the file pointer is pointing to. 
 // RETURNS : none.
 //
 void closeFile(FILE* file) {
@@ -31,12 +28,11 @@ void closeFile(FILE* file) {
     }
 }
 
-
 //
 // FUNCTION : loadOrderDB
 // DESCRIPTION : Prompts the user for a file path, opens the file, reads each line, and processes it.
 // PARAMETERS : None
-// RETURNS : None.
+// RETURNS : char** (pointer to an array of strings).
 //
 char** loadOrderDB(void) {
     printf("Loading Order Database...\n");
@@ -49,38 +45,44 @@ char** loadOrderDB(void) {
         return NULL;
     }
 
-	//Declare initializers for the array of arrays
+    //Initliaze variables for appending the line buffer into array
     int capacity = 10;
     int count = 0;
     char** lines = (char**)malloc(capacity * sizeof(char*));
     char lineBuffer[300];
 
-	//Read the lines
+    //Read the file line by line
     while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
         size_t len = strlen(lineBuffer);
         if (len > 0 && lineBuffer[len - 1] == '\n') {
             lineBuffer[len - 1] = '\0';
         }
 
+        if (count >= capacity) {
+            capacity *= 2;
+            lines = (char**)realloc(lines, capacity * sizeof(char*));
+        }
 
+        lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
+        strcpy_s(lines[count], strlen(lineBuffer) + 1, lineBuffer);
+        count++;
+    }
 
-	//Close the file
+    //Close it
     closeFile(file);
     logEvent("INFO", "Loading Order Database: Completed.");
 
+    //Null termiante the index and the array
     lines = (char**)realloc(lines, (count + 1) * sizeof(char*));
-    lines[count] = NULL;
+    lines[count] = NULL; 
     return lines;
 }
-
-
-
 
 //
 // FUNCTION : loadCustomerDB
 // DESCRIPTION : Prompts user for a customer database file, opens it, reads line by line, and processes each line.
 // PARAMETERS : None currently?
-// RETURNS : None.
+// RETURNS : char** (pointer to an array of strings).
 //
 char** loadCustomerDB(void) {
     printf("Loading Customer Database...\n");
@@ -93,87 +95,88 @@ char** loadCustomerDB(void) {
         return NULL;
     }
 
-	//Declare initializers for the array of arrays
+	//Initialize variables for appending the line buffer into array
     int capacity = 10;
     int count = 0;
     char** lines = (char**)malloc(capacity * sizeof(char*));
     char lineBuffer[300];
 
-	//Read the lines
+	//Read the file line by line
     while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
         size_t len = strlen(lineBuffer);
         if (len > 0 && lineBuffer[len - 1] == '\n') {
             lineBuffer[len - 1] = '\0';
         }
 
+        if (count >= capacity) {
+            capacity *= 2;
+            lines = (char**)realloc(lines, capacity * sizeof(char*));
+        }
 
-		//Add it to the correct index in the array
         lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
         strcpy_s(lines[count], strlen(lineBuffer) + 1, lineBuffer);
         count++;
     }
 
-	//Close the file
+	//Close it
     closeFile(file);
     logEvent("INFO", "Loading Customer Database: Completed.");
 
-    lines = (char**)realloc(lines, (count + 1) * sizeof(char*));
-    lines[count] = NULL;
+	//Null terminate the index and the array
+    lines = (char**)realloc(lines, (count + 1) * sizeof(char*)); 
+    lines[count] = NULL; 
     return lines;
 }
-
-
-
-
 
 //
 // FUNCTION : loadPartsDB
 // DESCRIPTION : Prompts user for the parts database file, opens it, and reads line by line for processing.
 // PARAMETERS : None.
-// RETURNS : None.
+// RETURNS : char** (pointer to an array of strings).
 //
 char** loadPartsDB(void) {
     printf("Loading Parts Database...\n");
     logEvent("INFO", "Loading Parts Database: Started.");
 
-    //IOpen the file
+	//Open the file
     FILE* file = NULL;
     if (openFile(&file, "parts.db", "r") != 0 || !file) {
         logEvent("ERROR", "Failed to open parts.db file.");
         return NULL;
     }
 
-    //Declare initializers for the array of arrays
+	//Initialize variables for appending the line buffer into array
     int capacity = 10;
     int count = 0;
     char** lines = (char**)malloc(capacity * sizeof(char*));
     char lineBuffer[300];
 
-    //Read the files
+	//Read the file line by line
     while (fgets(lineBuffer, sizeof(lineBuffer), file)) {
         size_t len = strlen(lineBuffer);
         if (len > 0 && lineBuffer[len - 1] == '\n') {
             lineBuffer[len - 1] = '\0';
         }
 
+        if (count >= capacity) {
+            capacity *= 2;
+            lines = (char**)realloc(lines, capacity * sizeof(char*));
+        }
 
-        //Add it to the correct index in the array
         lines[count] = (char*)malloc(strlen(lineBuffer) + 1);
         strcpy_s(lines[count], strlen(lineBuffer) + 1, lineBuffer);
         count++;
     }
 
-    //Close the file
+	//Close it
     closeFile(file);
     logEvent("INFO", "Loading Parts Database: Completed.");
 
-    lines = (char**)realloc(lines, (count + 1) * sizeof(char*));
-    lines[count] = NULL;
+	//Null terminate the index and the array
+    lines = (char**)realloc(lines, (count + 1) * sizeof(char*)); // Ensure null-termination
+    lines[count] = NULL; // Null-terminate the array
     return lines;
 }
-
-
-
 
 //
 // FUNCTION : freeLines
@@ -186,19 +189,3 @@ void freeLines(char** lines, int count) {
     }
     free(lines);
 }
-
-//
-// FUNCTION : loadAllDatabases
-// DESCRIPTION : Calls the load functions for all databases.
-// PARAMETERS : None.
-// RETURNS : None.
-//
-void loadAllDatabases(void) {
-	// log message 
-    loadOrderDB();
-	loadCustomerDB();
-	loadPartsDB();
-    // log message
-    logEvent("INFO", "All databases loaded successfully.");
-}
-
