@@ -6,7 +6,7 @@
 //               (separated by '|') and prints it if valid.
 // PARAMETERS  : const char* lineBuffer - The raw line from customers.db
 // RETURNS     : None
-void ValidateAndPrintCustomer(const char* lineBuffer)
+void ValidateAndPrintCustomer(char* lineBuffer)
 {
 	const int EXPECTED_FIELDS = 12; //12, not 9 =)
     int fieldCount = 0;
@@ -76,19 +76,21 @@ void mainMenu(void) {
         switch (choice) {
         case LOAD_DATABASE:
 			logEvent("INFO", "Starting to load all databases.");
-			loadAllDatabases();
+			order = loadOrderDB();
+			part = loadPartsDB();
+			customer = loadCustomerDB();
             break;
-        case LOAD_ORDER:
-            logEvent("INFO", "Starting to load order Database.");
-            loadOrderDB();
+        case LIST_CUSTOMER:
+            logEvent("INFO", "Starting to load custumer Database.");
+			ValidateAndPrintCustomers(customer); //custumerhere
             break;
-        case LOAD_PARTS:
+        case LIST_PART:
             logEvent("INFO", "Starting to load parts Database.");
-			loadPartsDB();
+			ValidateAndPrintParts(part); //
             break;
-        case LOAD_CUSTOMER:
-            logEvent("INFO", "Starting to load customer Database.");
-			loadCustomerDB();
+        case LIST_ORDER:
+            logEvent("INFO", "Starting to load order Database.");
+			ValidateAndPrintOrders(order); //custumer here
 			break;
 		case EXIT:
 			printf("Exiting...\n");

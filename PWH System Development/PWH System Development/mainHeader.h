@@ -17,9 +17,9 @@
 //ENUMS
 typedef enum {
 	LOAD_DATABASE = 1,
-	LOAD_ORDER,
-	LOAD_PARTS,
-	LOAD_CUSTOMER,
+	LIST_CUSTOMER,
+	LIST_PART,
+	LIST_ORDER,
 	EXIT,
 } menuOptions;
 
@@ -35,10 +35,9 @@ char* getFilePath();
 void loadOrderDB();
 void loadPartsDB();
 void loadCustomerDB();
-void loadAllDatabases();
-void ValidateAndPrintOrder(const char* lineBuffer);
-void listValidParts(const char* lineBuffer);
-void ValidateAndPrintCustomer(const char* lineBuffer);
+void ValidateAndPrintOrders(const char* lineBuffer);
+void ValidateAndPrintParts(const char* lineBuffer);
+void ValidateAndPrintCustomers(const char* lineBuffer);
 void logEvent(const char* logLevel, const char* message);
 void mainMenu(void);
 int getValidIntegerInput(int max_choice);
