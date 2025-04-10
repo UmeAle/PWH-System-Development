@@ -47,14 +47,12 @@ static const char* RX_DATE_OPT = R"(^$|^\d{4}-\d{2}-\d{2}$)";
 
 errno_t openFile(FILE** file, const char* filename, const char* mode);
 void closeFile(FILE* file);
-char* getFilePath();
 char** loadOrderDB();
 char** loadPartsDB();
 char** loadCustomerDB();
-void loadAllDatabases();
-void ValidateAndPrintOrder(const char* lineBuffer);
-void listValidParts(const char* lineBuffer);
-void ValidateAndPrintCustomer(const char* lineBuffer);
+void ValidateAndPrintOrder(char** lineBuffer);
+void ValidateAndPrintPart(char** lineBuffer);
+void ValidateAndPrintCustomer(char** lineBuffer);
 void logEvent(const char* logLevel, const char* message);
 void mainMenu(void);
 int getValidIntegerInput(int max_choice);

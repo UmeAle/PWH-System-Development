@@ -9,9 +9,12 @@
 // PARAMETERS  : const char* lineBuffer - The order line (string) to be validated.
 // RETURNS     : NONE
 //
-void ValidateAndPrintOrder(const char* lineBuffer)
+void ValidateAndPrintOrder(char** lineBuffer)
 {
 	const int EXPECTED_FIELDS = 11;
+	int i = 0;
+
+	while (lineBuffer[i] != NULL) {
 	int fieldCount = 0;
 	char tempLine[300];
 	char* token;
@@ -20,7 +23,7 @@ void ValidateAndPrintOrder(const char* lineBuffer)
 	char log_message[MAX_LOG_LENGTH];
 	
 	//Copies the original line to avoid changes directly
-	strncpy_s(tempLine, lineBuffer, sizeof(tempLine));
+	strncpy_s(tempLine, lineBuffer[i], sizeof(tempLine));
 	tempLine[sizeof(tempLine) - 1] = '\0';
 
 	//Tokenize the line based on the '|' delimeter to separate fields
@@ -58,4 +61,6 @@ void ValidateAndPrintOrder(const char* lineBuffer)
 		//log message
 		logEvent("WARNING", "Order record invalid - incorrect token count.");
 	}
+	i++;
+	}  // Process next record in the array
 }

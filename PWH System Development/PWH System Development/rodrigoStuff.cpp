@@ -6,9 +6,11 @@
 //               (separated by '|') and prints it if valid.
 // PARAMETERS  : const char* lineBuffer - The raw line from customers.db
 // RETURNS     : None
-void ValidateAndPrintCustomer(const char* lineBuffer)
+void ValidateAndPrintCustomer(char** lineBuffer)
 {
-	const int EXPECTED_FIELDS = 12; //12, not 9 =)
+	const int EXPECTED_FIELDS = 12; //12
+    int i = 0;
+    while (lineBuffer[i] != NULL){
     int fieldCount = 0;
 	char* tokens[EXPECTED_FIELDS];
     char tempLine[300];
@@ -17,7 +19,7 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
 	int valid = 0;
 
     //Make a copy of the original line to avoid modifying it directly
-    strncpy_s(tempLine, lineBuffer, sizeof(tempLine));
+    strcpy_s(tempLine, sizeof(tempLine), lineBuffer[i]);
     tempLine[sizeof(tempLine) - 1] = '\0';
 
 	//Tokenize using the pipes (' | ')
@@ -73,6 +75,8 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
     //log message
     snprintf(log_message, sizeof(log_message), "Custumer '%s' record processed successfully", tokens[0]);
     logEvent("INFO", log_message);
+    i++;
+    } // Process next record in the array
 }
 
 
@@ -82,6 +86,10 @@ void ValidateAndPrintCustomer(const char* lineBuffer)
 // RETURNS     : None
 void mainMenu(void) {
     menuOptions choice;
+	char** customerDB = NULL;
+	char** partDB = NULL;
+	char** orderDB = NULL;
+
     printf("======================================\n");
     printf("      Welcome to the PWH System!      \n");
     printf("======================================\n");
@@ -93,22 +101,39 @@ void mainMenu(void) {
         
         case LOAD_DATABASE:
 			logEvent("INFO", "Starting to load all databases.");
-			loadAllDatabases();
+			customerDB = loadCustomerDB();
+			partDB = loadPartsDB();
+			orderDB = loadOrderDB();
             break;
         
         case LIST_CUSTOMER:
             logEvent("INFO", "Starting to load order Database.");
-            loadCustomerDB();
+			if (customerDB == NULL) {
+				printf("Customer database not loaded. Please load the database first.\n");
+				break;
+			}
+            ValidateAndPrintCustomer(customerDB);
+            //loadCustomerDB();
             break;
         
         case LIST_PART:
             logEvent("INFO", "Starting to load parts Database.");
-			loadPartsDB();
+			if (partDB == NULL) {
+				printf("Parts database not loaded. Please load the database first.\n");
+				break;
+			}
+            ValidateAndPrintPart(partDB);
+            //loadPartsDB();
             break;
         
         case LIST_ORDER:
             logEvent("INFO", "Starting to load customer Database.");
-			loadOrderDB();
+			if (orderDB == NULL) {
+				printf("Order database not loaded. Please load the database first.\n");
+				break;
+			}
+			ValidateAndPrintOrder(orderDB);
+            //loadOrderDB();
 			break;
 		
         case EXIT:
