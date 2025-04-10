@@ -90,23 +90,28 @@ void mainMenu(void) {
 		displayMainMenu();
         choice = (menuOptions)getValidIntegerInput(5);
         switch (choice) {
+        
         case LOAD_DATABASE:
 			logEvent("INFO", "Starting to load all databases.");
 			loadAllDatabases();
             break;
-        case LOAD_ORDER:
+        
+        case LIST_CUSTOMER:
             logEvent("INFO", "Starting to load order Database.");
-            loadOrderDB();
+            loadCustomerDB();
             break;
-        case LOAD_PARTS:
+        
+        case LIST_PART:
             logEvent("INFO", "Starting to load parts Database.");
 			loadPartsDB();
             break;
-        case LOAD_CUSTOMER:
+        
+        case LIST_ORDER:
             logEvent("INFO", "Starting to load customer Database.");
-			loadCustomerDB();
+			loadOrderDB();
 			break;
-		case EXIT:
+		
+        case EXIT:
 			printf("Exiting...\n");
 			break;
         default:
@@ -121,9 +126,9 @@ void mainMenu(void) {
 // RETURNS     : None
 void displayMainMenu(void) {
 	printf("\n1. Load Database\n");
-	printf("2. Load Order Database\n");
-	printf("3. Load Parts Database\n");
-	printf("4. Load Customer Database\n");
+	printf("2. List Customers\n");
+	printf("3. List Parts\n");
+	printf("4. List Orders\n");
 	printf("5. Exit\n");
     printf("Please select an option: ");
 }
