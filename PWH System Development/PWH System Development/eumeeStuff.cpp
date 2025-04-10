@@ -35,6 +35,31 @@ void ValidateAndPrintOrder(char** lineBuffer)
 		token = strtok_s(NULL, "|", &context);
 	}
 
+	if (fieldCount != EXPECTED_FIELDS)
+	{
+		logEvent("WARNING", "Order record invalid - incorrect token count");
+		return;
+	}
+
+	//Validating with regex
+	if (!matchesRegex(RX_ID, tokens[0]) ||
+		!matchesRegex(RX_DATE, tokens[1]) || 
+		!matchesRegex(RX_OR_STATUS, tokens[2]) ||
+		!matchesRegex(RX_ID, tokens[3]) ||
+		!matchesRegex(RX_OR_TOTAL, tokens[4]) ||
+		!matchesRegex(RX_PARTS, tokens[5]) ||
+		!matchesRegex(RX_PARTS, tokens[6]) ||
+		!matchesRegex(RX_ID, tokens[7]) ||
+		!matchesRegex(RX_PARTS, tokens[8]) ||
+		!matchesRegex(RX_ID, tokens[9]) ||
+		!matchesRegex(RX_PARTS, tokens[10]))
+	{
+		//log message
+		logEvent("WARNING", "Order record invalid - incorrect token count.");
+		return;
+	}
+
+
 	//Only prints the valid orders
 	if (fieldCount == EXPECTED_FIELDS) {
 		printf("\n===== Valid Order =====\n");

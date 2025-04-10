@@ -10,8 +10,11 @@
 //
 void ValidateAndPrintPart(char** lineBuffer)
 {
-	int i = 0;
+    const int EXPECTED_FIELDS = 7;
+    int i = 0;
+   
     while (lineBuffer[i] != NULL) {
+        int fieldCount = 0;
         int tokenCount = 0;
         char tempLine[300];
         char* context = NULL;
@@ -27,6 +30,24 @@ void ValidateAndPrintPart(char** lineBuffer)
         while (token != NULL && tokenCount < 7) {
             tokens[tokenCount++] = token;
             token = strtok_s(NULL, "|", &context); // Get the next token.
+        }
+
+        if (fieldCount != EXPECTED_FIELDS)
+        {
+            logEvent("WARNING", "Order record invalid - incorrect token count");
+            return;
+        }
+
+        if (!matchesRegex(RX_NAME, tokens[0]) ||
+            !matchesRegex(RX_NAME, tokens[1]) ||
+            !matchesRegex(RX_NAME, tokens[2]) ||
+            !matchesRegex(RX_PART_COST, tokens[3]) ||
+            !matchesRegex(RX_PART_QUANTITY, tokens[4]) ||
+            !matchesRegex(RX_PART_STATUS, tokens[5]) ||
+            !matchesRegex(RX_ID, tokens[6]))
+        {
+            logEvent("ERROR", "Customer record invalid - field format error.");
+            return;
         }
 
         // Check if the record has exactly 7 fields so that it passes as valid, if not its invalid.

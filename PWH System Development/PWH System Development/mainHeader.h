@@ -42,6 +42,15 @@ static const char* RX_MONEY_NONNEG = R"(^(?:\d+(?:\.\d{1,2})?)$)";
 static const char* RX_DATE = R"(^(?:\d{4}-\d{2}-\d{2})$)";
 static const char* RX_DATE_OPT = R"(^$|^\d{4}-\d{2}-\d{2}$)";
 
+//regex too
+static const char* RX_PART_COST = R"(^(?!0+(?:\.0+)?$)\d+(\.\d{1,2})?$)";
+static const char* RX_PART_QUANTITY = R"(^(0|[1-9][0-9]*)$)";
+static const char* RX_PART_STATUS = R"(^-?\d+$)";
+
+//more regex
+static const char* RX_OR_STATUS = R"(^[0-9]+$)";
+static const char* RX_OR_TOTAL = R"(^[0-9]+(\.[0-9]{1,2})?$)";
+static const char* RX_PARTS = R"(^[1-9][0-9]*$)";
 
 //Prototypes
 
